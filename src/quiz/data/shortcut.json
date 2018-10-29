@@ -1,0 +1,32 @@
+{
+	"questions":[
+		{
+			"question": "Cut Item?",
+			"answer": "Ctrl-x"
+		},
+		{
+			"question": "Copy Item?",
+			"answer": "Ctrl-c"
+		},
+		{
+			"question": "Paste Item?",
+			"answer": "Ctrl-v"
+		},
+		{
+			"question": "Switch Windows?",
+			"answer": "Alt-Tab"
+		},
+		{
+			"question": "Close Window?",
+			"answer": "Alt-F4"
+		},
+		{
+			"question": "Display Help?",
+			"answer": "F1"
+		},	
+		{
+			"question": "Pay Your Respects?",
+			"answer": "F"
+		}			
+	]
+}
