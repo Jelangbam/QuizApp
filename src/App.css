@@ -14,11 +14,7 @@
 }
 
 .App-quiz {
-  font-size: large;
-}
-
-.Choice {
-	color: green;
+  font-size: 2em;
 }
 
 body, html {

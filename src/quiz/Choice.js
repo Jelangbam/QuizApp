@@ -6,7 +6,7 @@ class Choice extends Component {
 	render() {
 		return (
 			<Button className='Choice' style={{background:'radial-gradient(ellipse at center, #feffff 0%,#d2ebf9 100%)', 
-				maxWidth: '400px', maxHeight: '200px', minWidth: '400px', minHeight: '200px'}}
+				maxWidth: '400px', maxHeight: '200px', minWidth: '400px', minHeight: '200px', fontSize: 28}}
 				variant='contained' onClick={() => this.props.handleAnswer(this.props.answerText)}>
 			{this.props.answerText}
 			</Button>
