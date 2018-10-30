@@ -5,7 +5,9 @@ import Button from '@material-ui/core/Button';
 class Choice extends Component { 
 	render() {
 		return (
-			<Button className='choice' size='large' variant='contained' onClick={() => this.props.handleAnswer(this.props.answerText)}>
+			<Button className='Choice' style={{background:'radial-gradient(ellipse at center, #feffff 0%,#d2ebf9 100%)', 
+				maxWidth: '400px', maxHeight: '200px', minWidth: '400px', minHeight: '200px'}}
+				variant='contained' onClick={() => this.props.handleAnswer(this.props.answerText)}>
 			{this.props.answerText}
 			</Button>
 		);
