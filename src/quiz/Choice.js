@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 class Choice extends Component { 
 	render() {
 		return (
-			<button className="choice" onClick={() => this.props.handleAnswer(this.props.answerText)}>
+			<Button className='choice' size='large' variant='contained' onClick={() => this.props.handleAnswer(this.props.answerText)}>
 			{this.props.answerText}
-			</button>
+			</Button>
 		);
 	}
 }

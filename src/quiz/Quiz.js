@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Question from './Question';
 import Results from './Results';
-import * as data from './data/shortcut.json';
+import Status from './Status';
 
 class Quiz extends Component { 
 	constructor(props) {
 		super(props);
+		const data = require('./data/' + this.props.quizType + '.json');
 		this.state = {
-			quizType: this.props.quizType,
+			data: data,
 			qnumber: 0,
 			score: 0,
 			streak: 0,
@@ -16,7 +17,10 @@ class Quiz extends Component {
 		};
 		this.getResult = this.getResult.bind(this);
 	}
-
+/*
+Reports results to this component, called by child. RESPONSIBLE FOR SCORING
+@param boolean correct: true if answered correctly, false otherwise.
+*/
 	getResult(correct) {
 		if(correct) {
 			this.setState((prevState) => ({
@@ -40,10 +44,12 @@ class Quiz extends Component {
 				<div>
 					{this.state.total === this.state.qnumber 
 					? <Results score={this.state.score} total={this.state.total}/>
-					: <Question key={this.state.qnumber} qnumber={this.state.qnumber} getResult={this.getResult} />}
+					: <Question key={this.state.qnumber} data={this.state.data} qnumber={this.state.qnumber} getResult={this.getResult} />}
 				</div>
 				<div className='Score'>
-				<p> Current Streak: {this.state.streak} Current Score: {this.state.score} / {this.state.qnumber} </p>
+				{this.state.total === this.state.qnumber 
+					? null
+					: <Status score={this.state.score} streak={this.state.streak} qnumber={this.state.qnumber} />}
 				</div>
 			</div>
 			);

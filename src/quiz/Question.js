@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import Choice from './Choice';
 import PropTypes from 'prop-types';
-import * as data from './data/shortcut.json';
 
 class Question extends Component { 
 	constructor(props) {
 		super(props);
 		this.state = {
-			answers: ['1', '2', '3', '4'],
+			answers: ['1', '2', '3', '4']
 		};
 		this.handleAnswer = this.handleAnswer.bind(this);
 	}
@@ -22,22 +21,29 @@ information. Grabs random answers from other questions and shuffles.
 	createQuestion() {
 		let answers = [];
 		let used = [];
-		answers[0] = data.questions[this.props.qnumber].answer;
+		answers[0] = this.props.data.questions[this.props.qnumber].answer;
 		used[0] = this.props.qnumber;
 		for(let i = 1; i < this.state.answers.length; i++) {			
-			let x = getRandomInt(data.questions.length);
+			let x = getRandomInt(this.props.data.questions.length);
 			while(used.indexOf(x) !== -1) {
-				x = getRandomInt(data.questions.length);
+				x = getRandomInt(this.props.data.questions.length);
 			}
 			used[i] = x;
-			answers[i] = data.questions[x].answer;
+			answers[i] = this.props.data.questions[x].answer;
 		}
+		
+
 		shuffle(answers);
 		this.setState(
 			() => ({
 				answers: answers
 			})
 		);
+
+				/*
+		Shuffles array using Fisher-Yates shuffle
+		@param [{object}] arr
+		*/
 		function shuffle(arr) {
 			let i, j, x;
 			for (i = arr.length - 1; i > 0; i--) {
@@ -48,6 +54,10 @@ information. Grabs random answers from other questions and shuffles.
 			}
 			return arr;
 		}
+		/*
+		Gets random integer within range [0,max)
+		@param Integer max
+		*/
 		function getRandomInt(max) {
 			return Math.floor(Math.random() * Math.floor(max));
 		}		
@@ -66,7 +76,7 @@ Function fed to child, checks to see if answer is correct and feeds
 boolean to this parent's component.
 */
 	handleAnswer(answerText) {
-		const correct = (answerText === data.questions[this.props.qnumber].answer);
+		const correct = (answerText === this.props.data.questions[this.props.qnumber].answer);
 		this.props.getResult(correct);
 	}	
 
@@ -74,7 +84,9 @@ boolean to this parent's component.
 		return (
 			<div>
 				<div className='question'>
-				{data.questions[this.props.qnumber].question}
+				<h2>
+				{this.props.data.questions[this.props.qnumber].question}
+				</h2>
 				</div>
 				<div className='answer-row'>
 				{this.renderChoice(this.state.answers[0])}
@@ -90,6 +102,7 @@ boolean to this parent's component.
 }
 
 Question.propTypes = {
+	data: PropTypes.object,
 	qnumber: PropTypes.number,
 	getResult: PropTypes.func
 };

@@ -9,8 +9,8 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Windows Shortcut Quiz</h1>
         </header>
-        <p className="App-intro">
-			<Quiz quizType='Windows'/>
+        <p className="App-quiz">
+			<Quiz quizType='shortcut' key='shortcut'/>
         </p>
       </div>
     );
