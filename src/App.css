@@ -4,17 +4,19 @@
 
 .App-header {
   background-color: #222;
-  height: 100px;
+  height: 200px;
   padding: 20px;
   color: white;
-}
-
-.App-title {
-  font-size: 3em;
+  font-size: 1.75em;
 }
 
 .App-quiz {
   font-size: 2em;
+}
+.DropdownHeader {
+	padding: 0px;
+	margin: 0px;
+	font-size: 50em;
 }
 
 body, html {

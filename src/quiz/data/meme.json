@@ -1,0 +1,32 @@
+{
+	"questions":[
+		{
+			"question": "Which Smash character is my favorite?",
+			"answer": "Roy"
+		},
+		{
+			"question": "I've got a bone to pick with this character...",
+			"answer": "Skeletor"
+		},
+		{
+			"question": "Who am I thinking about?",
+			"answer": "Marth"
+		},
+		{
+			"question": "Nyanpasu!",
+			"answer": "Renge"
+		},
+		{
+			"question": "Delicious?",
+			"answer": "Peach"
+		},
+		{
+			"question": "Best Waifu?",
+			"answer": "Fox"
+		},	
+		{
+			"question": "My B",
+			"answer": "B"
+		}			
+	]
+}
