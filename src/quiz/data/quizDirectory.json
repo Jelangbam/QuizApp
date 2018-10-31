@@ -1,0 +1,13 @@
+{
+	"quizzes": [
+		{
+			"type": "shortcut",
+			"title": "Shortcut Quiz"
+		},
+		{
+			"type": "meme",
+			"title": "Meme Quiz"
+		}
+	]
+}
+

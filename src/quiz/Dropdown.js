@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import '../App.css';
 
 class Dropdown extends Component { 
 	constructor(props) {
 		super(props);
+		const data = require('./data/quizDirectory.json');
 		this.state = {
 			active: false,
 			headerTitle: this.props.title,
-			data: [
-				{
-					type: 'shortcut',
-					title: 'Shortcut Quiz',
-					selected: false,
-					key: 'quiz'
-				},
-				{
-					type: 'meme',
-					title: 'Meme Quiz',
-					selected: false,
-					key: 'quiz'
-				}
-			]
+			data: data.quizzes
 		};
 		this.disableDD = this.disableDD.bind(this);
 		this.toggleActive = this.toggleActive.bind(this);
