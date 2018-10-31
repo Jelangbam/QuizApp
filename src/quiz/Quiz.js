@@ -16,6 +16,7 @@ class Quiz extends Component {
 			total: data.questions.length
 		};
 		this.getResult = this.getResult.bind(this);
+		this.resetQuiz = this.resetQuiz.bind(this);
 	}
 /*
 Reports results to this component, called by child. RESPONSIBLE FOR SCORING
@@ -37,13 +38,21 @@ Reports results to this component, called by child. RESPONSIBLE FOR SCORING
 		}
 
 	}
+	
+	resetQuiz() {
+		this.setState({
+			score: 0,
+			qnumber: 0,
+			streak: 0,
+		});
+	}
 
 	render() {
 		return (
 			<div>
 				<div>
 					{this.state.total === this.state.qnumber 
-					? <Results score={this.state.score} total={this.state.total}/>
+					? <Results score={this.state.score} total={this.state.total} resetQuiz={this.resetQuiz}/>
 					: <Question key={this.state.qnumber} data={this.state.data} qnumber={this.state.qnumber} getResult={this.getResult} />}
 				</div>
 				<div className='Score'>

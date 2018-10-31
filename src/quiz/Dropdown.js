@@ -38,13 +38,13 @@ class Dropdown extends Component {
 
 	render() {
 		return (
-			<div className='dropdown'>
-				<div className='dropdownHeader' onClick={this.toggleActive}>
+			<div className='Dropdown'>
+				<div className='DropdownHeader' onClick={this.toggleActive}>
 				<h1>{this.state.headerTitle}</h1>
 				</div>
-				{ this.state.active && <ul className='dropdownList'>
+				{ this.state.active && <ul className='DropdownList'>
 					{ this.state.data.map((item) => (
-						<li className='dropdownData' key={item.type} onClick={() => this.setSelected(item)}>
+						<li className='DropdownData' key={item.type} onClick={() => this.setSelected(item)}>
 						{item.title}
 						</li>
 					))
