@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 class Results extends Component { 
 	render() {
 		return (
-			<div className='results'>
+			<div className='Results'>
 			<h2> 
 			Congratulations! You got {this.props.score} out of {this.props.total} correct!
 			</h2>

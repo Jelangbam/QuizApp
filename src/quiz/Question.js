@@ -83,19 +83,25 @@ boolean to this parent's component.
 	render() {
 		return (
 			<div>
-				<div className='question'>
-				<h2>
-				{this.props.data.questions[this.props.qnumber].question}
-				</h2>
+				<div className='Question'>
+					<h2>
+					{this.props.data.questions[this.props.qnumber].question}
+					</h2>
 				</div>
-				<div className='answer-row'>
-				{this.renderChoice(this.state.answers[0])}
-				{this.renderChoice(this.state.answers[1])}
+				<div className='Answers'>
+					<div className='Answer0'>
+					{this.renderChoice(this.state.answers[0])}
+					</div>
+					<div className='Answer1'>
+					{this.renderChoice(this.state.answers[1])}
+					</div>
+					<div className='Answer2'>
+					{this.renderChoice(this.state.answers[2])}
+					</div>
+					<div className='Answer3'>
+					{this.renderChoice(this.state.answers[3])}
+					</div>
 				</div>
-				<div className='answer-row'>
-				{this.renderChoice(this.state.answers[2])}
-				{this.renderChoice(this.state.answers[3])}
-				</div>	
 			</div>
 		);
 	}

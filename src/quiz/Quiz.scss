@@ -1,0 +1,37 @@
+.Quiz-data {
+	.Question {
+		font-size: 2em;
+	}
+	.Results {
+		font-size: 2.5em;
+	}
+	.Answers {
+		align-content:space-between;
+		display: grid;
+		padding: 0px;
+		margin: 0px;
+		grid-template-areas: 
+		"a b"
+		"c d";
+		.Answer0 {
+			grid-area: a;
+			justify-self: end;
+		}
+		.Answer1 {
+			grid-area: b;
+			justify-self: start;
+		}
+		.Answer2 {
+			grid-area: c;
+			justify-self: end;
+		}
+		.Answer3 {
+			grid-area: d;
+			justify-self: start;
+		}
+	}
+}
+
+.Quiz-Score {
+	font-size: 1em;
+}

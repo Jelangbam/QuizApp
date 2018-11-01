@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Question from './Question';
 import Results from './Results';
 import Status from './Status';
+import './Quiz.css';
 
 class Quiz extends Component { 
 	constructor(props) {
@@ -50,12 +51,12 @@ Reports results to this component, called by child. RESPONSIBLE FOR SCORING
 	render() {
 		return (
 			<div>
-				<div>
+				<div className='Quiz-data'>
 					{this.state.total === this.state.qnumber 
 					? <Results score={this.state.score} total={this.state.total} resetQuiz={this.resetQuiz}/>
 					: <Question key={this.state.qnumber} data={this.state.data} qnumber={this.state.qnumber} getResult={this.getResult} />}
 				</div>
-				<div className='Score'>
+				<div className='Quiz-score'>
 				{this.state.total === this.state.qnumber 
 					? null
 					: <Status score={this.state.score} streak={this.state.streak} qnumber={this.state.qnumber} />}

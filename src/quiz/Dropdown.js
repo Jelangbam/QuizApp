@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import '../App.css';
 
 class Dropdown extends Component { 
 	constructor(props) {
@@ -39,12 +38,12 @@ class Dropdown extends Component {
 	render() {
 		return (
 			<div className='Dropdown'>
-				<div className='DropdownHeader' onClick={this.toggleActive}>
+				<div className='Dropdown-header' onClick={this.toggleActive}>
 				<h1>{this.state.headerTitle}</h1>
 				</div>
-				{ this.state.active && <ul className='DropdownList'>
+				{ this.state.active && <ul className='Dropdown-list'>
 					{ this.state.data.map((item) => (
-						<li className='DropdownData' key={item.type} onClick={() => this.setSelected(item)}>
+						<li className='Dropdown-data' key={item.type} onClick={() => this.setSelected(item)}>
 						{item.title}
 						</li>
 					))
