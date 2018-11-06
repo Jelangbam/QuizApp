@@ -1,6 +1,6 @@
 .App {
 	text-align: center;
-	font-family: Comic Sans MS;
+	font-family: Arial, Helvetica, sans-serif;
 }
   
 .App-header {
@@ -13,28 +13,7 @@
 		position: relative;
 		display: inline-block;
 		text-align: left;
-		z-index: 1;
-		.Dropdown-header {
-			&:hover {
-				cursor: pointer;
-				background:blue;
-			}
-		}
-
-		.Dropdown-list {
-			z-index: 2;
-			position: absolute;
-			list-style-type: none;
-			top: 80px;
-			left: 0px;
-			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.74);
-			.Dropdown-data {
-				&:hover {
-					cursor: pointer;
-					background:blue;
-				}
-			}
-		}
+		z-index: 1;		
 	}
 }
   

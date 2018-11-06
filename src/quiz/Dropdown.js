@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import './Dropdown.css';
 class Dropdown extends Component { 
 	constructor(props) {
 		super(props);
@@ -8,23 +8,17 @@ class Dropdown extends Component {
 		this.state = {
 			active: false,
 			headerTitle: this.props.title,
-			data: data.quizzes
+			data: data.quizzes,
+			selected: false
 		};
-		this.disableDD = this.disableDD.bind(this);
 		this.toggleActive = this.toggleActive.bind(this);
 		this.setSelected = this.setSelected.bind(this);
 	}
 
-	disableDD() {
-		this.setState({
-			active: false,
-		});
-	}
-
 	setSelected(item) {
 		this.setState({
-			active: false,
 			headerTitle: item.title,
+			selected: true
 		});
 		this.props.handleQuizChange(item.type);
 	}
@@ -43,7 +37,7 @@ class Dropdown extends Component {
 				</div>
 				{ this.state.active && <ul className='Dropdown-list'>
 					{ this.state.data.map((item) => (
-						<li className='Dropdown-data' key={item.type} onClick={() => this.setSelected(item)}>
+						<li className='Dropdown-data' key={item.type} type="square" onClick={() => this.setSelected(item)}>
 						{item.title}
 						</li>
 					))

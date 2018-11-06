@@ -5,8 +5,8 @@
 			"title": "Shortcut Quiz"
 		},
 		{
-			"type": "meme",
-			"title": "Meme Quiz"
+			"type": "random",
+			"title": "Random Quiz"
 		}
 	]
 }
