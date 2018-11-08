@@ -6,12 +6,11 @@ class Dropdown extends Component {
 		super(props);
 		const data = require('./data/quizDirectory.json');
 		this.state = {
-			active: false,
+			selected: false,
 			headerTitle: this.props.title,
-			data: data.quizzes,
-			selected: false
+			data: data.quizzes
 		};
-		this.toggleActive = this.toggleActive.bind(this);
+
 		this.setSelected = this.setSelected.bind(this);
 	}
 
@@ -23,19 +22,14 @@ class Dropdown extends Component {
 		this.props.handleQuizChange(item.type);
 	}
 
-	toggleActive() {
-		this.setState((prevState) => ({
-			active: !prevState.active,
-		}));
-	}
 
 	render() {
 		return (
 			<div className='Dropdown'>
-				<div className='Dropdown-header' onClick={this.toggleActive}>
+				<div className='Dropdown-header' onMouseEnter={this.props.enableDropdown}>
 				<h1>{this.state.headerTitle}</h1>
 				</div>
-				{ this.state.active && <ul className='Dropdown-list'>
+				{ this.props.dropdownActive && <ul className='Dropdown-list' onMouseLeave={this.props.disableDropdown}>
 					{ this.state.data.map((item) => (
 						<li className='Dropdown-data' key={item.type} type="square" onClick={() => this.setSelected(item)}>
 						{item.title}
@@ -50,7 +44,10 @@ class Dropdown extends Component {
 
 Dropdown.propTypes = {
 	title: PropTypes.string,
-	handleQuizChange: PropTypes.func,
+	disableDropdown: PropTypes.func.isRequired,
+	enableDropdown: PropTypes.func.isRequired,
+	dropdownActive: PropTypes.bool.isRequired,
+	handleQuizChange: PropTypes.func.isRequired
 };
 
 export default Dropdown;
