@@ -77,7 +77,9 @@ boolean to this parent's component.
 */
 	handleAnswer(answerText) {
 		const correct = (answerText === this.props.data.questions[this.props.qnumber].answer);
-		this.props.getResult(correct);
+		this.props.getResult(correct, 
+			this.props.data.questions[this.props.qnumber].question, 
+			this.props.data.questions[this.props.qnumber].answer);
 	}	
 
 	render() {

@@ -4,6 +4,7 @@
 }
   
 .App-header {
+	margin: 0px auto;
 	background-color: #222;
 	height: 160px;
 	padding: 20px;
@@ -20,6 +21,6 @@
 body, html {
 	height: 100%;
 	background: linear-gradient(rgba(75, 182, 231, 0.664), rgba(23, 114, 156, 0.664));
-	margin: 0px;
+	margin: 0px auto;
 	padding: 0px;
 }

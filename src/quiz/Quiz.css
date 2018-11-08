@@ -3,12 +3,16 @@
 
 .Quiz-data .Results {
   font-size: 2.5em; }
+  .Quiz-data .Results .ResultTable {
+    margin: 0px auto; }
+    .Quiz-data .Results .ResultTable table, .Quiz-data .Results .ResultTable th, .Quiz-data .Results .ResultTable td {
+      border: 2px solid black; }
 
 .Quiz-data .Answers {
   align-content: space-between;
   display: grid;
   padding: 0px;
-  margin: 0px;
+  margin: 0px auto;
   grid-template-areas: "a b" "c d"; }
   .Quiz-data .Answers .Answer0 {
     grid-area: a;
@@ -23,5 +27,5 @@
     grid-area: d;
     justify-self: start; }
 
-.Quiz-Score {
+.Quiz-score {
   font-size: 1em; }

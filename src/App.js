@@ -44,7 +44,7 @@ class App extends Component {
 				enableDropdown={this.enableDropdown}
 				handleQuizChange={this.handleQuizChange} 
 				dropdownActive={this.state.dropdownActive}
-				key={'title'}/>
+				key={'quizDropdown'}/>
 		</ClickOutside>
         </header>
 		{ this.state.quizType !== '' &&
