@@ -15,10 +15,12 @@ class Quiz extends Component {
 			qnumber: 0,
 			score: 0,
 			streak: 0,
-			total: data.questions.length
+			total: data.questions.length,
+			timer: 0
 		};
 		this.getResult = this.getResult.bind(this);
 		this.resetQuiz = this.resetQuiz.bind(this);
+		this.incrementTimer = this.incrementTimer.bind(this);
 	}
 /*
 Reports results to this component, called by child. RESPONSIBLE FOR SCORING
@@ -48,13 +50,20 @@ Reports results to this component, called by child. RESPONSIBLE FOR SCORING
 		}
 
 	}
+
+	incrementTimer(timestep = 0.1) {
+		this.setState((prevState) => ({
+			timer: prevState.timer + timestep
+		}));
+	}
 	
 	resetQuiz() {
 		this.setState({
 			score: 0,
 			qnumber: 0,
 			streak: 0,
-			history:[]
+			history:[],
+			timer:0
 		});
 	}
 
@@ -63,13 +72,26 @@ Reports results to this component, called by child. RESPONSIBLE FOR SCORING
 			<div>
 				<div className='Quiz-data'>
 					{this.state.total === this.state.qnumber 
-					? <Results score={this.state.score} total={this.state.total} history={this.state.history} resetQuiz={this.resetQuiz}/>
-					: <Question key={this.state.qnumber} data={this.state.data} qnumber={this.state.qnumber} getResult={this.getResult} />}
+					? <Results score={this.state.score} 
+						timer={this.state.timer}
+						total={this.state.total} 
+						history={this.state.history} 
+						resetQuiz={this.resetQuiz}/>
+					: <Question key={this.state.qnumber} 
+						data={this.state.data} 
+						qnumber={this.state.qnumber} 
+						getResult={this.getResult} />}
 				</div>
 				<div className='Quiz-score'>
 				{this.state.total === this.state.qnumber 
 					? null
-					: <Status score={this.state.score} streak={this.state.streak} qnumber={this.state.qnumber} />}
+					: <Status score={this.state.score} 
+						streak={this.state.streak} 
+						qnumber={this.state.qnumber} 
+						incrementTimer={this.incrementTimer}
+						timer={this.state.timer}
+						key={this.qnumber + this.timer}
+						/>}
 				</div>
 			</div>
 			);

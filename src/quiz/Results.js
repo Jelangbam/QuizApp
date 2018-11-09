@@ -7,11 +7,7 @@ class Results extends Component {
 		return (
 			<div className='Results'>
 				<h2> 
-				Congratulations! You got {this.props.score} out of {this.props.total} correct!
-				<br></br>
-				<Button size='large' onClick={this.props.resetQuiz}>
-				{'Try Again?'}
-				</Button> 
+				Congratulations! You got {this.props.score} out of {this.props.total} correct in {this.props.timer.toPrecision(2)} seconds!
 				</h2>
 				<table className="ResultTable">
 				<tr>
@@ -27,6 +23,10 @@ class Results extends Component {
 						</tr>
 					))}
 				</table>
+				<br></br>				
+				<Button size='large' onClick={this.props.resetQuiz}>
+				{'Try Again?'}
+				</Button> 
 			</div>
 		);
 	}
@@ -36,7 +36,8 @@ Results.propTypes = {
 	history: PropTypes.array.isRequired,
 	total: PropTypes.number.isRequired,
 	score: PropTypes.number.isRequired,
-	resetQuiz: PropTypes.func.isRequired
+	resetQuiz: PropTypes.func.isRequired,
+	timer: PropTypes.number.isRequired
 };
 
 export default Results;
