@@ -14,15 +14,18 @@ class Question extends Component {
 	componentDidMount() {
 		this.createQuestion();
 	}
-/*
-Creates question from question number and the .json containing 
-information. Grabs random answers from other questions and shuffles.
-*/
+	/*
+	Creates question from question number and the .json containing 
+	information. Grabs random answers from other questions and shuffles.
+	*/
 	createQuestion() {
 		let answers = [];
 		let used = [];
 		answers[0] = this.props.data.questions[this.props.qnumber].answer;
 		used[0] = this.props.qnumber;
+		
+		// creates other options based on other question's answers
+		// TODO: set up predefined options in .json and use those instead.
 		for(let i = 1; i < this.state.answers.length; i++) {			
 			let x = getRandomInt(this.props.data.questions.length);
 			while(used.indexOf(x) !== -1) {
@@ -32,7 +35,6 @@ information. Grabs random answers from other questions and shuffles.
 			answers[i] = this.props.data.questions[x].answer;
 		}
 		
-
 		shuffle(answers);
 		this.setState(
 			() => ({
@@ -40,10 +42,10 @@ information. Grabs random answers from other questions and shuffles.
 			})
 		);
 
-				/*
-		Shuffles array using Fisher-Yates shuffle
-		@param [{object}] arr
-		*/
+		/**
+		 * Shuffles array using Fischer-Yates
+		 * @param {[]} arr 
+		 */
 		function shuffle(arr) {
 			let i, j, x;
 			for (i = arr.length - 1; i > 0; i--) {
@@ -54,27 +56,29 @@ information. Grabs random answers from other questions and shuffles.
 			}
 			return arr;
 		}
-		/*
-		Gets random integer within range [0,max)
-		@param Integer max
-		*/
+
+		/**
+		 * Gets random integer from 0 to max
+		 * @param {number} max 
+		 */
 		function getRandomInt(max) {
 			return Math.floor(Math.random() * Math.floor(max));
 		}		
 	}
 
-
-/*
-Renders the Choice 
-@param string: contains the text in the given choice
-*/
+	/**
+	 * Renders the Choice
+	 * @param {string} i 
+	 */
 	renderChoice(i) {
 		return <Choice answerText={i} key={i} handleAnswer={this.handleAnswer}/>;
 	}
-/*
-Function fed to child, checks to see if answer is correct and feeds
-boolean to this parent's component.
-*/
+
+	/**
+	 * Function fed to child, checks to see if answer is correct 
+	 * and feeds boolean to this parent's component.
+	 * @param {string} answerText 
+	 */
 	handleAnswer(answerText) {
 		const correct = (answerText === this.props.data.questions[this.props.qnumber].answer);
 		this.props.getResult(correct, 

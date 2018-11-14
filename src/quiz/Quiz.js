@@ -22,10 +22,13 @@ class Quiz extends Component {
 		this.resetQuiz = this.resetQuiz.bind(this);
 		this.incrementTimer = this.incrementTimer.bind(this);
 	}
-/*
-Reports results to this component, called by child. RESPONSIBLE FOR SCORING
-@param boolean correct: true if answered correctly, false otherwise.
-*/
+
+	/**
+	 * Reports results to this component, called by child. RESPONSIBLE FOR SCORING
+	 * @param {boolean} correct - Whether the answer was correct
+	 * @param {string} question - Question Text
+	 * @param {string} answer - Answer Text
+	 */
 	getResult(correct, question, answer) {
 		const newHistory = this.state.history.slice();
 		newHistory.push({ 
@@ -51,12 +54,19 @@ Reports results to this component, called by child. RESPONSIBLE FOR SCORING
 
 	}
 
+	/**
+	 * Increments the timer by the timestep
+	 * @param {number} timestep - How precise to keep time, in seconds
+	 */
 	incrementTimer(timestep = 0.1) {
 		this.setState((prevState) => ({
 			timer: prevState.timer + timestep
 		}));
 	}
 	
+	/**
+	 * Resets the quiz to the initial state.
+	 */
 	resetQuiz() {
 		this.setState({
 			score: 0,

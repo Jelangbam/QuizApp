@@ -16,18 +16,28 @@ class App extends Component {
 		this.handleQuizChange = this.handleQuizChange.bind(this);
 	}
 
+	/**
+	 * Disables dropdown, doesn't show options
+	 */
 	disableDropdown() {
 		this.setState({
 			dropdownActive: false
 		});
 	}
 
+	/**
+	 * Enables dropdown, shows options
+	 */
 	enableDropdown() {
 		this.setState({
 			dropdownActive: true
 		});
 	}
 
+	/**
+	 * Change quiz to the quizType
+	 * @param {string} quizType - base name of quiz in the data folder, ex. "shortcut"
+	 */
 	handleQuizChange(quizType) {
 		this.setState({
 			quizType: quizType

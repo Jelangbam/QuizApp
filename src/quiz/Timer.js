@@ -5,9 +5,9 @@ class Timer extends Component {
 
 	componentDidMount() {
 		//timestep in ms
-		const timestep = 100;
+		const accuracy = 100;
 		this.interval = setInterval(
-			() => this.props.incrementTimer(timestep/1000), timestep
+			() => this.props.incrementTimer(accuracy/1000), accuracy
 		);
 	}
 
@@ -17,7 +17,7 @@ class Timer extends Component {
 
 	render() {
 		return(
-			<p>Time Elapsed: {this.props.timer.toPrecision(2)}</p>
+			<p>Time Elapsed: {this.props.timer.toPrecision(1)}</p>
 		);
 	}
 }
