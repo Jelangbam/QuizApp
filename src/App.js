@@ -49,7 +49,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
 		<ClickOutside disableDropdown={this.disableDropdown}>
-			<Dropdown title='Select A Quiz!' 
+			<Dropdown title='->Select A Quiz Here!<-' 
 				disableDropdown={this.disableDropdown}
 				enableDropdown={this.enableDropdown}
 				handleQuizChange={this.handleQuizChange} 
