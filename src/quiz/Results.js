@@ -7,7 +7,7 @@ class Results extends Component {
 		return (
 			<div className='Results'>
 				<h2> 
-				Congratulations! You got {this.props.score} out of {this.props.total} correct in {this.props.timer.toPrecision(2)} seconds!
+				Congratulations! You got {this.props.score} out of {this.props.total} correct in {this.props.timer.toFixed(1)} seconds!
 				</h2>
 				<table className="ResultTable">
 				<tr>
