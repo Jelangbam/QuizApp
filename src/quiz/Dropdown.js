@@ -13,7 +13,10 @@ class Dropdown extends Component {
 
 		this.setSelected = this.setSelected.bind(this);
 	}
-
+	/**
+	 * Sets dropdown to display selected quiz and change quiz at top level
+	 * @param {type, title} item 
+	 */
 	setSelected(item) {
 		this.setState({
 			headerTitle: item.title,

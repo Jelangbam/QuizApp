@@ -17,7 +17,7 @@ class Timer extends Component {
 
 	render() {
 		return(
-			<p>Time Elapsed: {this.props.timer.toPrecision(1)}</p>
+			<p>Time Elapsed: {this.props.timer.toFixed(1)}</p>
 		);
 	}
 }
